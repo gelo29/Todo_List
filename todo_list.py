@@ -1,3 +1,4 @@
+import os
 import sys
 import json
 from PyQt5.QtWidgets import(
@@ -7,13 +8,18 @@ from PyQt5.QtWidgets import(
 
 from PyQt5.QtCore import Qt
 
+# Get the full path of the current script file
+script_path = __file__
+
+# Get the directory of the script
+current_directory = os.path.dirname(script_path)
 class ToDo(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("📝 To-Do List App")
         self.setFixedSize(400,400)
         
-        self.todo_file = "tasks.json"
+        self.todo_file = os.path.join(current_directory,"tasks.json")
         self.tasks = []
         
         self.create_ui()
@@ -96,6 +102,7 @@ class ToDo(QMainWindow):
                 self.tasks = json.load(f)
                 self.task_list.addItems(self.tasks)
         except FileNotFoundError:
+            print("File not found")
             self.tasks = []
 
 if __name__ == "__main__":
