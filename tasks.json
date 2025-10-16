@@ -1,1 +1,22 @@
-[]
+[
+    {
+        "text": "Basketball",
+        "done": true
+    },
+    {
+        "text": "Skateboard",
+        "done": true
+    },
+    {
+        "text": "Coding",
+        "done": true
+    },
+    {
+        "text": "Cooking",
+        "done": true
+    },
+    {
+        "text": "Jogging",
+        "done": false
+    }
+]
